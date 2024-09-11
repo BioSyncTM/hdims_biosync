@@ -92,10 +92,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: const Color.fromARGB(75, 0, 66, 74),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 20, bottom: 20, right: 15),
+                        margin: EdgeInsets.only(left: 20, top: 20, bottom: 20, right: 15),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(40),
@@ -108,13 +108,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 80,
                         height: 80,
                       ),
-                      ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 120),
-                        child: Text(
-                          softWrap: true,
-                          "Harshvardhan Kandasamy",
-                          style: TextStyle(
-                            fontSize: 16
+                      Expanded(
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(maxWidth: 120),
+                          child: Text(
+                            softWrap: true,
+                            "Harshvardhan Kandasamy",
+                            style: TextStyle(
+                              fontSize: 16
+                            ),
                           ),
                         ),
                       )
@@ -124,37 +126,35 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 // Pages
                 Container(
+                  margin: EdgeInsets.only(top: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Container(
-                          child: TextButton(
-                            onPressed: () => Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) => super.widget
-                              )
-                          ),
-                            child: Text(
-                              "Home",
-                              style: TextStyle(
-                                color: Color.fromARGB(215, 0, 66, 74),
-                              ),
-                            )
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => SecondPage()),
-                            );
-                          },
-                          child: Text(
-                            "Generate QR",
+                      TextButton(
+                        onPressed: () => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => super.widget
                           )
                         ),
-
+                        child: Text(
+                          "Home",
+                          style: TextStyle(
+                            color: Color.fromARGB(215, 0, 66, 74),
+                          ),
+                        )
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SecondPage()),
+                          );
+                        },
+                        child: Text(
+                          "Generate QR",
+                        )
+                      ),
                     ],
                   ),
                 )
@@ -245,6 +245,42 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ]
+                ),
+
+                Container(
+                  margin: EdgeInsets.all(20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 200,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(75, 0, 66, 74),
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                              width: 1,
+                            )
+                          ),
+                          child: Container(
+                            margin: EdgeInsets.all(20),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Notice",
+                                  style: TextStyle(
+                                    fontSize: 20
+                                  ),
+                                ),
+                                Text(
+                                  "No announcements."
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 )
               ],
             ),
