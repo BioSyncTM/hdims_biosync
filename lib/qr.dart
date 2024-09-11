@@ -24,7 +24,7 @@ class SecondPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('assets/images/qrcode.jpeg'),
+            Image.asset('assets/images/qrqr.png'),
             SizedBox(height: 20),
             Text('This is an example QR code'),
             SizedBox(height: 20), // Adding spacing between Text and ElevatedButton
