@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text(
                     "MediTrack",
                     style: TextStyle(
-                      fontSize: 24
+                      fontSize: 24,
                     ),
                   ),
                   margin: EdgeInsets.only(bottom: 30),
