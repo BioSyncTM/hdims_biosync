@@ -119,14 +119,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 Container(
                   child: Column(
                     children: [
-                      Container(
-                        child: TextButton(
+
+                        TextButton(
                           onPressed: null,
                           child: Text(
                             "Home",
                           )
                         ),
-                      )
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SecondPage()),
+                            );
+                          },
+                          child: Text(
+                            "Generate QR",
+                          )
+                        ),
+
                     ],
                   ),
                 )
