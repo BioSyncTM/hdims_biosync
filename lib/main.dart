@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hdims_biosync/qr.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Montserrat',
       ),
       home: const MyHomePage(title: 'Welcome, User!'),
-    );
+
+      );
   }
 }
 
