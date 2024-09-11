@@ -36,8 +36,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,17 +51,79 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: Drawer(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(20, 50, 20, 10),
+              margin: EdgeInsets.fromLTRB(20, 60, 20, 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // App title
+                Container(
+                  child: Text(
+                    "BioSync"
+                  )
+                ),
+
+                Container(
+                  child: Text(
+                    "MediTrack",
+                    style: TextStyle(
+                      fontSize: 24
+                    ),
+                  ),
+                  margin: EdgeInsets.only(bottom: 30),
+                ),
+
                 // Profile
                 Container(
-                  color: Colors.black,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: Colors.black
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                    color: const Color.fromARGB(75, 0, 66, 74),
+                  ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        child: Text("PFP"),
+                        margin: EdgeInsets.only(top: 20, bottom: 20, right: 15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(40),
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1
+                          )
+                        ),
+                        child: Center(child: Text("PFP")),
+                        width: 80,
+                        height: 80,
+                      ),
+                      ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 120),
+                        child: Text(
+                          softWrap: true,
+                          "Harshvardhan Kandasamy",
+                          style: TextStyle(
+                            fontSize: 16
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+
+                // Pages
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        child: TextButton(
+                          onPressed: null,
+                          child: Text(
+                            "Home",
+                          )
+                        ),
                       )
                     ],
                   ),
@@ -124,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(75, 0, 66, 74),
                           border: Border.all(
-                            width: 2,
+                            width: 1,
                           ),
                           borderRadius: BorderRadius.circular(30)
                         ),
