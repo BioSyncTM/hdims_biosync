@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 // App title
                 Container(
                   child: Text(
-                    "BioSync"
+                    "BioSyncTM"
                   )
                 ),
 
