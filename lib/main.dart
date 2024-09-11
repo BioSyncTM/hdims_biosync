@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:hdims_biosync/qr.dart';
 
@@ -41,6 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: const Color.fromARGB(215, 0, 66, 74),
+        child: Icon(Icons.chat, color: const Color.fromARGB(215, 255, 255, 255),), 
+      ),
       appBar: AppBar(
         // leading: IconButton(
         //   icon: Icon(
@@ -118,13 +125,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 // Pages
                 Container(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-
-                        TextButton(
-                          onPressed: null,
-                          child: Text(
-                            "Home",
-                          )
+                      Container(
+                          child: TextButton(
+                            onPressed: () => Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => super.widget
+                              )
+                          ),
+                            child: Text(
+                              "Home",
+                              style: TextStyle(
+                                color: Color.fromARGB(215, 0, 66, 74),
+                              ),
+                            )
+                          ),
                         ),
                         TextButton(
                           onPressed: () {
@@ -191,23 +208,39 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(left: 20, right: 20),
-                        padding: EdgeInsets.all(20),
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: const Color.fromARGB(75, 0, 66, 74),
-                          border: Border.all(
-                            width: 1,
+                        child: Container(
+                          margin: EdgeInsets.only(left: 20, right: 20),
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(75, 0, 66, 74),
+                            border: Border.all(
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.circular(30)
                           ),
-                          borderRadius: BorderRadius.circular(30)
-                        ),
-                        child: Text(
-                          "Good to go!",
-                          style: TextStyle(
-                            fontSize: 16,
-
+                          child: Column(
+                            children: [
+                              Text(
+                                "Quick Glance",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                        
+                              ConstrainedBox(
+                                constraints: BoxConstraints(maxHeight: 80),
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
-
                         ),
                       ),
                     ),
