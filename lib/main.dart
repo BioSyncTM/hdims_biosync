@@ -34,23 +34,51 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
+
 class _MyHomePageState extends State<MyHomePage> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.black,
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.menu,
+        //     color: Colors.black,
+        //   ),
+        //   onPressed: () => Scaffold.of(context).openDrawer(),
+        // ),
+      ),
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.fromLTRB(20, 50, 20, 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // Profile
+                Container(
+                  color: Colors.black,
+                  child: Row(
+                    children: [
+                      Container(
+                        child: Text("PFP"),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-          onPressed: null,
         ),
       ),
       body: Container(
         // Top Bar
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // TopBar
             Container(
@@ -63,7 +91,62 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
 
-            // 
+            // Search bar
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  child: Container(
+                    margin: EdgeInsets.all(20),
+                    child: TextField(
+                      onTapOutside: (event) {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                          ),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        labelText: "Search"
+                      ),
+                    ),
+                  ),
+                ),
+
+                // Quick Glance
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(left: 20, right: 20),
+                        padding: EdgeInsets.all(20),
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(75, 0, 66, 74),
+                          border: Border.all(
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: Text(
+                          "Good to go!",
+                          style: TextStyle(
+                            fontSize: 16,
+
+                          ),
+
+                        ),
+                      ),
+                    ),
+                  ]
+                )
+              ],
+            ),
+
+            // Quick Glance
+            
           ],
         ),
 
